@@ -27,3 +27,9 @@ Then, simply run:
 tectonic rkulshreshtha_resume.tex
 ```
 This will automatically handle all package dependencies and output the compiled `rkulshreshtha_resume.pdf` file.
+
+## Automated Compilation (GitHub Actions)
+
+This repository is configured with a GitHub Actions pipeline. Every time a change is pushed to `rkulshreshtha_resume.tex`, the pipeline automatically compiles the document and keeps the most recent, up-to-date PDF in the `target/` folder.
+
+You can always download the latest version directly from the repository here: [target/rkulshreshtha_resume.pdf](target/rkulshreshtha_resume.pdf).
