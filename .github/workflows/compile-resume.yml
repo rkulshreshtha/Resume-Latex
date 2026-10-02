@@ -43,16 +43,24 @@ jobs:
           # Move pdf outside to avoid being deleted
           mv rkulshreshtha_resume.pdf ../rkulshreshtha_resume.pdf
           
-          # Create or switch to the 'resume' branch
-          git checkout --orphan resume
+          # Fetch the existing resume branch if it exists
+          git fetch origin resume || true
           
-          # Clear the branch of all source files
-          git rm -rf .
+          if git branch -a | grep -q "remotes/origin/resume"; then
+            # Checkout existing branch to maintain history
+            git checkout resume
+          else
+            # Create branch if it doesn't exist yet
+            git checkout --orphan resume
+          fi
+          
+          # Clear the branch of any existing tracked files
+          git rm -rf . || true
           
           # Move the compiled PDF back into the root
           mv ../rkulshreshtha_resume.pdf .
           
-          # Commit and force push the PDF (keeps history clean with 1 commit)
+          # Commit and push the PDF (maintaining history)
           git add rkulshreshtha_resume.pdf
           git commit -m "Updated Resume towards '${SHORT_MSG}'" || echo "No changes to commit"
-          git push origin resume --force
+          git push origin resume
