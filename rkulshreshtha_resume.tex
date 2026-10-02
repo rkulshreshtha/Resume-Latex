@@ -23,16 +23,6 @@
 %% ---------------------------------------------------------------------
 %% SETTINGS
 %% ---------------------------------------------------------------------
-% Force page breaks at the same places as the original PDF
-% (before the "Member of Technical Staff 1" entry and before the
-% "Primary contact for investigating..." bullet).  Set to \matchpagesfalse
-% to let LaTeX paginate freely once you start editing content.
-\newif\ifmatchpages
-\matchpagesfalse
-\newcommand{\pbreak}{\ifmatchpages\newpage\fi}
-% Optional manual line break used once to reproduce the original's wrap ("PayPal." alone on a line)
-\newcommand{\lbreak}{\ifmatchpages\linebreak\fi}
-
 % Colours
 \definecolor{linkblue}{HTML}{0000FF}
 \definecolor{rolecolor}{HTML}{2B579A}
@@ -192,11 +182,10 @@ measurable results}.\par}
   team culture.
 \item Built a strong \bd{technical internship} project \bd{charter}, onboarded and guided
   \bd{3 interns} with peer-mentors within the team. Achieved high Intern project
-  appreciation score, happiness index and 100\% \bd{secured a PPO} at\lbreak\ PayPal.
+  appreciation score, happiness index and 100\% \bd{secured a PPO} at PayPal.
 \end{itemize}
 
 %%% ---- Member of Technical Staff 1 ------------------------------------
-\pbreak
 \entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
       {Member of Technical Staff 1 (PayPal Activity Services Team)}{03/22-06/22}
 \begin{itemize}
@@ -281,7 +270,6 @@ measurable results}.\par}
 \item \bd{Coded \& performed the stack migration} of 2 customer facing APIs with
   \bd{300M+ daily requests \& serving 2B+ records daily} to \bd{slash deployment duration by
   97.5\%}.
-\pbreak
 \item Primary contact for investigating \& \bd{resolving P0/P1 critical issues} from prime
   merchants like Intuit, Google, Microsoft, Facebook accounting for ``Million-dollar''
   transaction value \bd{with servicing 100+ Jira issues.}
