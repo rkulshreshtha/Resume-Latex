@@ -32,16 +32,27 @@ jobs:
           xelatex rkulshreshtha_resume.tex
           xelatex rkulshreshtha_resume.tex
 
-      - name: Move PDF to target folder
-        run: |
-          mkdir -p target
-          mv rkulshreshtha_resume.pdf target/
-
-      - name: Commit and push changes
+      - name: Commit and push PDF to 'resume' branch
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add -f target/rkulshreshtha_resume.pdf
+          
+          # Store commit message from main
           SHORT_MSG=$(git log -1 --pretty=%s)
-          git commit -m "Updated Resume towards '${SHORT_MSG}' [skip ci]" || echo "No changes to commit"
-          git push
+          
+          # Move pdf outside to avoid being deleted
+          mv rkulshreshtha_resume.pdf ../rkulshreshtha_resume.pdf
+          
+          # Create or switch to the 'resume' branch
+          git checkout --orphan resume
+          
+          # Clear the branch of all source files
+          git rm -rf .
+          
+          # Move the compiled PDF back into the root
+          mv ../rkulshreshtha_resume.pdf .
+          
+          # Commit and force push the PDF (keeps history clean with 1 commit)
+          git add rkulshreshtha_resume.pdf
+          git commit -m "Updated Resume towards '${SHORT_MSG}'" || echo "No changes to commit"
+          git push origin resume --force

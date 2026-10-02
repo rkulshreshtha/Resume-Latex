@@ -30,6 +30,6 @@ This will automatically handle all package dependencies and output the compiled 
 
 ## Automated Compilation (GitHub Actions)
 
-This repository is configured with a GitHub Actions pipeline. Every time a change is pushed to `rkulshreshtha_resume.tex`, the pipeline automatically compiles the document and keeps the most recent, up-to-date PDF in the `target/` folder.
+This repository is configured with a GitHub Actions pipeline. Every time a change is pushed to `rkulshreshtha_resume.tex`, the pipeline automatically compiles the document and keeps the most recent, up-to-date PDF in the `resume` branch.
 
-You can always download the latest version directly from the repository here: [target/rkulshreshtha_resume.pdf](target/rkulshreshtha_resume.pdf).
+You can always download the latest version directly from the repository here: [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume.pdf).
