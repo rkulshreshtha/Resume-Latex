@@ -1,0 +1,46 @@
+name: Compile and Publish Resume
+
+on:
+  push:
+    paths:
+      - 'rkulshreshtha_resume.tex'
+    branches:
+      - main
+  workflow_dispatch: # Allows you to manually trigger the workflow from the Actions tab
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push the compiled PDF back to the repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies (XeLaTeX & Microsoft Fonts)
+        run: |
+          sudo apt-get update
+          # Automatically accept the EULA for Microsoft core fonts (includes Arial)
+          echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | sudo debconf-set-selections
+          sudo apt-get install -y texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra fontconfig ttf-mscorefonts-installer
+          sudo fc-cache -f -v
+
+      - name: Compile LaTeX Document
+        run: |
+          # Run twice to resolve references and layout properly
+          xelatex rkulshreshtha_resume.tex
+          xelatex rkulshreshtha_resume.tex
+
+      - name: Move PDF to target folder
+        run: |
+          mkdir -p target
+          mv rkulshreshtha_resume.pdf target/
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add target/rkulshreshtha_resume.pdf
+          git commit -m "Auto-compile updated resume PDF [skip ci]" || echo "No changes to commit"
+          git push
