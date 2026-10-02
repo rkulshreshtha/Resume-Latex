@@ -42,5 +42,6 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -f target/rkulshreshtha_resume.pdf
-          git commit -m "Auto-compile updated resume PDF [skip ci]" || echo "No changes to commit"
+          SHORT_MSG=$(git log -1 --pretty=%s)
+          git commit -m "Updated Resume towards '${SHORT_MSG}' [skip ci]" || echo "No changes to commit"
           git push
