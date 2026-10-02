@@ -1,0 +1,419 @@
+%% =====================================================================
+%%  RAJAT KULSHRESHTHA - Resume
+%%  Compile:  pdflatex resume.tex
+%%
+%%  Quick switches / things you will want to edit live in the SETTINGS block below.
+%% =====================================================================
+\documentclass[10pt,letterpaper]{article}
+
+%% ---------------------------------------------------------------------
+%% PACKAGES
+%% ---------------------------------------------------------------------
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[letterpaper,left=0.63in,right=0.63in,top=0.63in,bottom=0.63in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks,
+            pdftitle={Rajat Kulshreshtha - Resume},
+            pdfauthor={Rajat Kulshreshtha}]{hyperref}
+
+%% ---------------------------------------------------------------------
+%% SETTINGS
+%% ---------------------------------------------------------------------
+% Force page breaks at the same places as the original PDF
+% (before the "Member of Technical Staff 1" entry and before the
+% "Primary contact for investigating..." bullet).  Set to \matchpagesfalse
+% to let LaTeX paginate freely once you start editing content.
+\newif\ifmatchpages
+\matchpagesfalse
+\newcommand{\pbreak}{\ifmatchpages\newpage\fi}
+% Optional manual line break used once to reproduce the original's wrap ("PayPal." alone on a line)
+\newcommand{\lbreak}{\ifmatchpages\linebreak\fi}
+
+% Colours
+\definecolor{linkblue}{HTML}{0000FF}
+\definecolor{rolecolor}{HTML}{2B579A}
+
+\newcommand{\urlProfessionalId}{https://www.linkedin.com/in/rajat-kulshreshtha-a598434b/}
+\newcommand{\urlSendMessage}{https://t.me/rkulshreshtha}
+\newcommand{\urlPhoneNum}{https://wa.link/kzhbd8}
+\newcommand{\urlIELTS}{https://bit.ly/3gjVfzE}
+
+% Spacing knobs
+\newlength{\entrygap}      \setlength{\entrygap}{8pt}
+\newlength{\blockindent}   \setlength{\blockindent}{11.5pt}
+\newlength{\eduindent}     \setlength{\eduindent}{11.5pt}
+
+%% ---------------------------------------------------------------------
+%% GLOBAL TYPOGRAPHY
+%% ---------------------------------------------------------------------
+\renewcommand{\normalsize}{\fontsize{10}{11.5}\selectfont}
+\spaceskip=2.78pt\relax   % fixed inter-word space (no shrink) to mimic Word/Docs line fitting
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\raggedbottom
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\clubpenalty=0
+\widowpenalty=0
+\setlength{\emergencystretch}{3em}
+
+\newlength{\textrightinset}\setlength{\textrightinset}{5.25pt}   % text stops a little before the rule's right end
+\setlist[itemize]{label=\raisebox{-0.12ex}{\fontsize{12}{12}\selectfont\textbullet},
+                  leftmargin=13pt,labelwidth=9pt,labelsep=4pt,labelindent=0pt,
+                  align=left,rightmargin=\textrightinset,
+                  itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt}
+
+%% ---------------------------------------------------------------------
+%% HELPER MACROS
+%% ---------------------------------------------------------------------
+\newcommand{\bd}[1]{\textbf{#1}}
+\newcommand{\ulink}[2]{\href{#1}{\textcolor{linkblue}{\underline{#2}}}}
+
+% Section heading: centred bold title + full-width rule
+%   \sect[gap-above]{TITLE}      thick rule
+%   \sectthin[gap-above]{TITLE}  thin rule
+\newcommand{\sectionbar}[3]{%
+  \par\vspace{#1}%
+  \centerline{\bfseries\fontsize{10.5}{12}\selectfont #3}%
+  \par\nointerlineskip\vspace{3pt}%
+  \noindent\rule{\linewidth}{#2}\par\vspace{1pt}}
+\newcommand{\sect}[2][9pt]{\sectionbar{#1}{1.3pt}{#2}}
+\newcommand{\sectthin}[2][9pt]{\sectionbar{#1}{0.5pt}{#2}}
+
+% Job / school entry header:  \entry{Company}{Location}{Role}{Dates}
+\newcommand{\entry}[4]{%
+  \par\vspace{\entrygap}%
+  \noindent\textbf{#1}\hfill #2\par
+  \noindent\textcolor{rolecolor}{\textit{#3}}\hfill\textcolor{rolecolor}{\textit{#4}}\par
+  \nopagebreak}
+
+% Indented block (Key Skills, Technology, Additional Information)
+\newenvironment{indented}{%
+  \list{}{\leftmargin=\blockindent\rightmargin=\textrightinset\topsep=0pt\partopsep=0pt
+          \parsep=0pt\itemsep=0pt\listparindent=0pt}\item\relax}{\endlist}
+
+%% =====================================================================
+\begin{document}
+\normalsize
+
+%% ---------------------------------------------------------------------
+%% HEADER
+%% ---------------------------------------------------------------------
+\centerline{\bfseries\fontsize{12}{14}\selectfont RAJAT KULSHRESHTHA}
+\vspace{1pt}
+\noindent\ulink{\urlProfessionalId}{Professional Id}\hfill
+         \ulink{\urlPhoneNum}{9207179678}\par
+\noindent\ulink{\urlSendMessage}{Send Message}\hfill
+         \ulink{mailto:rajatk171993@gmail.com}{rajatk171993@gmail.com}\par
+
+%% ---------------------------------------------------------------------
+%% EXPERIENCE
+%% ---------------------------------------------------------------------
+\sect[3pt]{EXPERIENCE}
+
+%%% ---- Manager, Software Development 1 -------------------------------
+\vspace{-5.5pt}
+\entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
+      {Manager, Software Development 1 (PayPal Activity Services Team)}{07/22-11/24}
+
+\vspace{11.8pt}
+{\leftskip=\blockindent\rightskip=\dimexpr\textrightinset\relax plus 2em\relax\itshape
+In leadership, I strive to \bd{bring personal value propositions} that go beyond routine
+tasks and \bd{have tangible impact on people, process and technology}. Collaboration with
+team and leadership is key to \bd{building consensus} on this value proposition. Once
+defined, I \bd{drive it to closure} by ensuring that my initiatives \bd{create visible,
+measurable results}.\par}
+\vspace{7.6pt}
+
+\begin{itemize}
+\item \bd{Managed a team of 10+ engineers (over 2+ years)} delivering strategic initiatives,
+  product enhancements, key technical roadmap items and meeting run the business goals.
+  \bd{Owned transaction listing, search and details} APIs across PayPal UX powering
+  \bd{engagement of 32\%+ in app} and another \bd{27\%+ engagement via emails} in post
+  transaction experiences.
+\item Swiftly \bd{delivered 70+ Product, 20+ Strategic, 30+ Security, 5+ Tech excellence}
+  and \bd{Innovation} initiatives by \bd{unifying 30+ engineers} in a cohesive and
+  high-functioning \bd{end-to-end product} model. Stepped up to \bd{institute
+  Product-Program-Engineering sync ups} to review OKRs progress, risk mitigation planning
+  and resource planning that \bd{enables leads to represent independently} in shared
+  cadences across stakeholders.
+\item Designed processes to \bd{achieve fast-paced and high quality deliveries}. Supported
+  \bd{over 300+ Jira tickets, 1k+ queries}, ensured zero P0/P1 in product, continual
+  \bd{4 9's availability} of critical business functionalities and \bd{low latencies} in
+  client facing interfaces. \bd{Refined} process \& tech solutions to handle exceptions,
+  \bd{alerting} and \bd{triage within} a \bd{small time frame}. Attained \bd{high work life
+  balance}, less interruptions and peaceful weekends/holidays.
+\item \bd{Nominated} at \bd{Senior Director+ level for leading a diverse 7+ member team}
+  across backend, web and app to build a scalable platform that \bd{drives PayPal's highest
+  priority fight against Spam}. Leveraged data oriented, process driven and highly agile
+  philosophy to \bd{deliver this end-to-end} with \bd{a month prior} to target timeline.
+\item Leading \bd{>60\% of Inbound intakes} as a trusted leadership peer, to steer, plan,
+  allocate resources and deliver enterprise strategic initiatives. \bd{Accelerate program
+  alignment by 50\%+} via deep understanding of enterprise strategic \& product goals,
+  architectural patterns, solution design and discovery.
+\item \bd{Share status} of current releases, monthly goals, team burn down charts, risks
+  and mitigation plan, quarterly roadmaps \bd{with senior executives on weekly basis}.
+  Convince and \bd{persuade on matters of strategic} and operational importance.
+\item Encourage \bd{architects to pursue 6 tech initiatives} in platform vision for
+  2023 \& 2024 \bd{that aligns with business strategy}, and, \bd{100+ Product requesters to
+  fine tune requirements} based on ROI in short, medium, long term with adherence to
+  compliance and governance.
+\item Conceptualized practices to improve \bd{sprint throughput by >25\%} and improved
+  \bd{say-do ratio by >70\%}. \bd{Slashed 3+ year old product backlog of 100+ tickets}
+  incorporating product and customer feedback, \bd{secured 10+ Merchants of \$5M+ TPV back
+  on PayPal}.
+\item \bd{Developed and deployed strategic platform initiatives}, setting a clear
+  \bd{performance measure of 99\%-ile data within <8 secs} in Activities cached data. Led
+  multi-year initiatives to \bd{curb platform legacy cost} and \bd{uplift systems
+  performance over 20\%+}.
+\item \bd{Managed}, re-designed and addressed \bd{performance bottlenecks in a Tier-1
+  system} to realize \bd{3x throughput, USD 300K+ savings/year}, reduced \bd{450+ VMs} and
+  \bd{50\%+ drop in CPU}. \bd{Innovated} a performance and cost efficient \bd{plug-n-play
+  shadow framework} that allows rapid internal re-architecture for scaling.
+\item \bd{Represented} our business unit in \bd{leadership visits}, \bd{presentations}; and
+  wider engineering group in \bd{hosting CTO talk}. Organized and coached the team to
+  present for CTO, CIO, Sr Directors, and in 30+ internal sessions.
+\item Recruited and \bd{managed headcount} by close collaboration with HR and leadership to
+  \bd{hire 4, laid off 2, promoted 2} and \bd{repositioned 2} engineers to ascertain org's
+  success, individual's growth and lowering center costs. Performed continuous team
+  assessment, strengths identification and stack ranking of individuals.
+\item \bd{Build the next generation,} coach teammates to \bd{build multiple skill
+  dimensions} and expand them to the next level. Embed processes to capture feedback from
+  stakeholders and leadership. \bd{Mentor with monthly 1:1} conversations, refining goals
+  and \bd{sharing structured feedback} to reflect and focus on growth \& wellbeing. Impart a
+  \bd{culture of team's recognition} within Dir+ org and peer groups. \bd{Celebrated
+  milestones} with team lunches, dinners, outings and group activities to nourish the one
+  team culture.
+\item Built a strong \bd{technical internship} project \bd{charter}, onboarded and guided
+  \bd{3 interns} with peer-mentors within the team. Achieved high Intern project
+  appreciation score, happiness index and 100\% \bd{secured a PPO} at\lbreak\ PayPal.
+\end{itemize}
+
+%%% ---- Member of Technical Staff 1 ------------------------------------
+\pbreak
+\entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
+      {Member of Technical Staff 1 (PayPal Activity Services Team)}{03/22-06/22}
+\begin{itemize}
+\item \bd{Steered} a small team for the migration of post transaction engagement feature,
+  ``Actions in Activities'', from \bd{Strong to Eventual consistency model}. Strategised the
+  execution with data driven decisioning and engineered end-to-end design and delivery.
+  \bd{Trimmed 70\% latency, savings of USD 480,000 per annum}, cut down \bd{Billion+ daily
+  real time API calls} and \bd{6 Billion+ daily DB SQL} and improved availability and
+  performance of actions capability to \bd{four 9's} in long term.
+\item \bd{Designed and launched} platform enhancement to allow \bd{GraphQL} based loading on
+  Activities detail page. \bd{Eliminated visible latency by 1+ sec}, avoiding \bd{60+ real
+  time API calls} and instituted higher platform availability, performance \& scale.
+\item \bd{ROI evaluation} for ES Infra cost to rationalize ``Did you mean'' usage in Search
+  API. Clearly identified Product requirements to design and innovate equivalent
+  functionality on top of available Platform capabilities. Instituted the change to achieve
+  \bd{per annum savings of USD 220,000} operational cost with \bd{ZERO customer impacting
+  issues}.
+\item \bd{Administered} PayPal Activities X-Geo team for design, planning and execution along
+  with platform redesign to facilitate data migration of millions of PayPal customers
+  following Geo regulatory compliance norms. \bd{Led the delivery} of Activities platform
+  capabilities to enable delightful end-to-end customer experiences for core PayPal
+  payments products successfully launched in China.
+\end{itemize}
+
+%%% ---- Software Engineer 3 ----------------------------------------------
+\entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
+      {Software Engineer 3 (PayPal Activity Services Team)}{02/20-03/22}
+\begin{itemize}
+\item \bd{Managed a team of 15+ engineers (over 1.5 years)} for executing the Enterprise
+  initiative to decommission \bd{4 legacy behemoth services} that were 10+ years old.
+  Effectively planned resources and created year long roadmaps that resulted in
+  \bd{eliminating USD 700,000 infra expenditure per annum}, killed \bd{100,000+ lines of
+  code} and \bd{25X+ performance improvements} in 7 Product searches.
+\item \bd{Spearheaded} PayPal Activities X-Geo enablement. Led a team of 8 engineers to
+  manage delivery, execution \& quality with driving critical design discussions to power
+  key PayPal revenue capabilities.
+\item Stepped up and identified key items that need to be completed for \bd{China Financial
+  Audit} regulatory compliance. Quickly built small teams, brought all hands on deck, and
+  delegated tasks to accomplish deliverables in a tight timeline. Navigated across the
+  board and created a 1-pager for sharing clarity. Supported \bd{30+ POCs} across PayPal on
+  this to win as One team.
+\item \bd{Led a group of 3} to optimize Search API \bd{latency by 20X} via implementing a
+  re-architected parallelised database read pattern.
+\item \bd{Redesigned a scalable architecture} that minimized customer perceived latency by
+  \bd{3X} for displaying ``Actions in Activities'' from typical \bd{3.5s to less than 1s}.
+\item \bd{Platform owner} moderating standardized development practices with \bd{500+ high
+  quality code reviews}.
+\end{itemize}
+
+%%% ---- Software Engineer 2 ----------------------------------------------
+\entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
+      {Software Engineer 2 (PayPal Activity Services Team)}{02/17-02/20}
+\begin{itemize}
+\item Co-ordinated with cross functional groups and \bd{directed a team of 5 engineers} to
+  build \bd{Enterprise Audit capability} for Large Enterprise merchants operating in 10+
+  economies serving millions of customers.
+\item \bd{Single handedly ran development} of team's externalized APIs on PayPal developer
+  portal that allows 3rd party, internal \& external developers to discover and consume
+  PayPal products. \bd{Rectified 50+ Product issues} for correctness and revamped for ease
+  of understanding.
+\item Cut down feature \bd{time to market by 3X} via incorporating self-serve coded
+  architecture in platform services.
+\item Remediated functional defects to establish \bd{100X latency improvements} in
+  non-performant filtering operations.
+\item \bd{Spearheaded platform integrations} projecting ``Million-dollar'' transaction value
+  with Partners like Android Pay, Samsung Pay, Apple etc.
+\item \bd{Recovered USD 100,000 per annum} of legacy maintenance cost by customizing
+  existing API for migration.
+\item \bd{Steered Security upgrade initiative} that modeled applications to authenticate
+  internal / external clients along with classification-based data encryption over network
+  transmission to safeguard customer's information.
+\item \bd{Engineered} ``Refund credit ETA tracker'' capability from scratch \bd{reducing
+  daily 5K customer contacts}.
+\item \bd{Innovated CI Jobs dashboard} addressing countless developer pain points and
+  \bd{saving 10K+ developer hours}.
+\end{itemize}
+
+%%% ---- Software Engineer 1 ----------------------------------------------
+\entry{PAYPAL INDIA PRIVATE LIMITED}{Bengaluru, KA}
+      {Software Engineer 1 (PayPal Activity Services Team)}{07/15-02/17}
+\begin{itemize}
+\item \bd{Coded \& performed the stack migration} of 2 customer facing APIs with
+  \bd{300M+ daily requests \& serving 2B+ records daily} to \bd{slash deployment duration by
+  97.5\%}.
+\pbreak
+\item Primary contact for investigating \& \bd{resolving P0/P1 critical issues} from prime
+  merchants like Intuit, Google, Microsoft, Facebook accounting for ``Million-dollar''
+  transaction value \bd{with servicing 100+ Jira issues.}
+\item Accelerated the execution of \bd{platform integrations} within a month for
+  Funds-In-Funds-Out offerings facilitating \bd{``Billion-dollar''} transaction value for
+  PayPal and Partners like Google, Xoom, Skype, Facebook etc.
+\item Simplified standard application logging and created a bunch of micro services
+  coupled with detailed documentation \bd{enabling 5X faster assessment} of Customer
+  reported issues.
+\end{itemize}
+
+%%% ---- Victoria University of Wellington ------------------------------
+\vspace{7.8pt}
+\entry{VICTORIA UNIVERSITY OF WELLINGTON}{Wellington, NZ}
+      {Summer Intern}{05/14-07/14}
+\begin{itemize}
+\item Independently worked on the project -- Parallel Computing in large network Load Flow
+  Analysis.
+\item \bd{Improved} computational \bd{speed by 5X} with \bd{50\%+ drop} in resources
+  consumption. Conceptualized an algorithm that implemented parallel processing techniques
+  on inherently serial algorithms using Network division scheme.
+\end{itemize}
+
+%% ---------------------------------------------------------------------
+%% EDUCATION
+%% ---------------------------------------------------------------------
+\sectthin[13.7pt]{EDUCATION}
+\par\vspace{5pt}
+\noindent\hspace*{\eduindent}\textbf{INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI}\hfill Assam, India\par
+\vspace{2pt}
+\noindent\hspace*{\eduindent}%
+\parbox[t]{362pt}{\textcolor{rolecolor}{\textit{Bachelor of Technology in Electronics and
+  Electrical Engineering with Minor in Computer Science and Engineering}}}%
+\hspace{6pt}\textbf{\textit{GPA: 8.93/10}}\hfill
+\textcolor{rolecolor}{\textit{07/11-05/15}}\par
+\vspace{27.9pt}
+\begin{itemize}
+\item Awarded \bd{Institute Silver Medal} for securing highest cumulative performance index
+  in EEE dept. 2015 Batch.
+\item Secured \bd{All India Rank 4531} ranking ``amongst top 0.5\% of the 1Million
+  students'' competing for the engineering entrance exam in India.
+\item Presented \bd{UG Thesis} on ``Real time transient simulation of large transmission
+  networks'' based on Electromagnetic transient program via parallel simulation on FPGA
+  using ISE (Xilinx) hardware language.
+\item \bd{Major courses}: Data structure and Algorithms, Software Engineering, Operating
+  systems and networks, Theory of Computation, Digital Signal processing, Advanced Control
+  Systems, Probability, Pattern Recognition and Machine Learning, Multivariable Calculus.
+\end{itemize}
+
+%% ---------------------------------------------------------------------
+%% KEY SKILLS
+%% ---------------------------------------------------------------------
+\sect[10pt]{KEY SKILLS}
+\vspace{5pt}
+\begin{indented}
+People-Process-Program-Escalation Management, Coaching \& Mentorship, Agile Leadership,
+Budgeting-Hiring-Resourcing Management (Attrition \& Layoff), Performance Management,
+Systems Design, Customer champion, Autonomy \& Collaboration, Accountability \& Ownership,
+Driving Consensus, Excellence and Craftsmanship, Curiosity and growth mindset, Grit Courage
+\& Bias for action, Comfortable with Ambiguity, Teamwork with Respect Empathy \& Humility,
+Quality Champion, Designing Scalable solutions, Thinking Functional \& Non-Functional
+Requirements, Enhancing Developer Productivity \& One Team Behaviour, Conflict Resolution.
+\end{indented}
+
+%% ---------------------------------------------------------------------
+%% TECHNOLOGY
+%% ---------------------------------------------------------------------
+\sect[23pt]{TECHNOLOGY}
+\vspace{5pt}
+\begin{indented}
+Micro-service architecture, Java, Spring Boot, REST, C++, ASF API, SQL, GIT, Bash
+scripting, Messaging with Queues/Kafka, Jenkins ECI / ECD, JIRA, Technical documentation,
+TDD with Junit, Functional Testing with TestNG, Docker, Production deployments, Swagger Open
+API, API Product documentation.
+\end{indented}
+
+%% ---------------------------------------------------------------------
+%% AWARDS AND RECOGNITION
+%% ---------------------------------------------------------------------
+\sect[23pt]{AWARDS AND RECOGNITION}
+\vspace{1pt}
+\begin{itemize}
+\item Professional Diploma in \bd{Coaching and Mentoring from Kingstown college, Ireland},
+  Nov'24 - Jun'25
+\item Secured \bd{Glint performance score 91/100 that is 14 points above Paypal Management
+  score} and \bd{highest in PayPal Consumer Org in Sep'2023} by effectively removing
+  barriers to execution, driving org alignment, engagement within own and cross functional
+  teams, uplifting career opportunities and demonstrating robustness in strategic direction
+  amidst changing senior leadership, product gaps and market dynamics.
+\item \bd{Attained} PayPal Manager benchmark \bd{certification} for
+  \textbf{\textit{Managing at PayPal Successfully}} in \bd{2024.}
+\item \bd{Recognised in PayPal Star of Month Apr 2021} for successfully bringing SLA and
+  Availability improvements with \bd{USD 680,000 annual savings} migrating from Legacy
+  systems. Effective demonstration of Collaboration, Inclusion and One team behaviors in
+  execution and success of X-Geo China milestone.
+\item \bd{Recognised in PayPal Heroes 2020} for showcasing persistence, sense of ownership
+  in work, building scalable solutions and significantly reducing time spent by team on
+  customer support in challenging pandemic period.
+\item \bd{Awarded 12 Spot Rewards from PayPal} for being the Top performer towards
+  Ownership, Quality, Ensuring Milestone delivery, Design, Driving Productivity, Optimizing
+  the core APIs and Tech support.
+\item \bd{Received 11 Bravo!} shout-outs from fellow Engineers and Management at PayPal
+  towards showcasing Effective Collaboration, One Team behavior, being Customer champion
+  and leading with Innovative solutions.
+\item \bd{Secured position} in PayPal \bd{Agile Championship Program 2019} out of 50+
+  competing participants.
+\item \bd{Ranked 1st} across PayPal Bangalore center in Cyber Security \bd{SecForce
+  championship 2019.}
+\item Received \bd{Certificate of appreciation} from PayPal Talent Acquisition team for
+  conducting multiple rounds of quality interviews with positive feedback from 30+
+  candidates to recruit the best talent at PayPal.
+\item \bd{Secured Internship} in Victoria University of Wellington, New Zealand
+  \bd{amongst top applicants} from the batch and \bd{awarded scholarship} for the same during
+  May--July 2014.
+\end{itemize}
+
+%% ---------------------------------------------------------------------
+%% ADDITIONAL INFORMATION
+%% ---------------------------------------------------------------------
+\sect[23pt]{ADDITIONAL INFORMATION}
+\vspace{3pt}
+\begin{indented}
+\textit{Personality} : \bd{ENFJ-A} (16personalities) \& \bd{Achiever, Strategic, Learner,
+Analytical, Arranger} (Gallup)\par
+\textit{Attained} : C1 with an \ulink{\urlIELTS}{overall 7.5 out of 9} band score in
+International English Language Testing System.\par
+\textit{Community :} PayPal Gives volunteer' 2017-2020. Achieved 3rd position in Shadow
+Play (Hostel team), Manthan'2012. Part of Organising team, Half Marathon, Techniche'2013.
+Qualified NSO-Badminton Athlete. Marketing Advisor for Shoplik.com leading with 40X growth,
+Alcheringa'2012.\par
+\textit{Interests:} Playing Badminton, Mathematical game ``Sudoku'', Travelling (Exploring
+new places and cuisines)
+\end{indented}
+
+\end{document}
