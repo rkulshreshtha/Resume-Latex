@@ -3,7 +3,7 @@ name: Compile and Publish Resume
 on:
   push:
     paths:
-      - 'rkulshreshtha_resume.tex'
+      - 'rkulshreshtha_resume*.tex'
     branches:
       - main
   workflow_dispatch: # Allows you to manually trigger the workflow from the Actions tab
@@ -26,13 +26,17 @@ jobs:
           sudo apt-get install -y texlive-xetex texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra fontconfig ttf-mscorefonts-installer
           sudo fc-cache -f -v
 
-      - name: Compile LaTeX Document
+      - name: Compile LaTeX Documents
         run: |
-          # Run twice to resolve references and layout properly
-          xelatex rkulshreshtha_resume.tex
-          xelatex rkulshreshtha_resume.tex
+          # Loop through all matching tex files and compile them twice
+          for file in rkulshreshtha_resume*.tex; do
+            if [ -f "$file" ]; then
+              xelatex "$file"
+              xelatex "$file"
+            fi
+          done
 
-      - name: Commit and push PDF to 'resume' branch
+      - name: Commit and push PDFs to 'resume' branch
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -40,8 +44,9 @@ jobs:
           # Store commit message from main
           SHORT_MSG=$(git log -1 --pretty=%s)
           
-          # Move pdf outside to avoid being deleted
-          mv rkulshreshtha_resume.pdf ../rkulshreshtha_resume.pdf
+          # Move pdfs outside to avoid being deleted when switching branches
+          mkdir -p ../pdfs
+          mv rkulshreshtha_resume*.pdf ../pdfs/ 2>/dev/null || true
           
           # Fetch the existing resume branch if it exists
           git fetch origin resume || true
@@ -57,10 +62,10 @@ jobs:
           # Clear the branch of any existing tracked files
           git rm -rf . || true
           
-          # Move the compiled PDF back into the root
-          mv ../rkulshreshtha_resume.pdf .
+          # Move the compiled PDFs back into the root
+          mv ../pdfs/*.pdf . 2>/dev/null || true
           
-          # Commit and push the PDF (maintaining history)
-          git add rkulshreshtha_resume.pdf
+          # Commit and push the PDFs (maintaining history)
+          git add rkulshreshtha_resume*.pdf
           git commit -m "Updated Resume towards '${SHORT_MSG}'" || echo "No changes to commit"
           git push origin resume
