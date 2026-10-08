@@ -1,35 +1,64 @@
 # Resume in LaTeX
 
-This repository contains my resume written in LaTeX (`rkulshreshtha_resume.tex`).
+This repository contains my resume source files written in LaTeX, configured with automated compilation via GitHub Actions.
 
-## How to Compile to PDF
+---
 
-The resume uses the `fontspec` package to load the system font **Arial**, which means it requires a Unicode-aware LaTeX engine like **XeLaTeX**, **LuaLaTeX**, or **Tectonic** rather than standard `pdflatex`.
+## Resume Variants & Downloads
+
+The compiled PDFs for all versions are automatically generated and maintained in the [`resume`](https://github.com/rkulshreshtha/Resume-Latex/tree/resume) branch:
+
+| Variant | Source TeX File | Description | Download PDF |
+| :--- | :--- | :--- | :--- |
+| **Master Resume** | [`rkulshreshtha_resume.tex`](rkulshreshtha_resume.tex) | Master comprehensive resume used with AI & job descriptions to generate role-tailored CVs | [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume.pdf) |
+| **EM (1-Page, Relocation)** | [`rkulshreshtha_resume_EM_1page.tex`](rkulshreshtha_resume_EM_1page.tex) | 1-page CV targeting Engineering Manager roles (includes open to relocation info at the top) | [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume_EM_1page.pdf) |
+| **EM (2-Page, Relocation)** | [`rkulshreshtha_resume_EM_2page.tex`](rkulshreshtha_resume_EM_2page.tex) | 2-page CV targeting Engineering Manager roles (includes open to relocation info at the top) | [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume_EM_2page.pdf) |
+| **EM (1-Page, BLR)** | [`rkulshreshtha_resume_EM_1page_BLR.tex`](rkulshreshtha_resume_EM_1page_BLR.tex) | 1-page CV targeting Engineering Manager roles in Bangalore (BLR only, no relocation info) | [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume_EM_1page_BLR.pdf) |
+| **EM (2-Page, BLR)** | [`rkulshreshtha_resume_EM_2page_BLR.tex`](rkulshreshtha_resume_EM_2page_BLR.tex) | 2-page CV targeting Engineering Manager roles in Bangalore (BLR only, no relocation info) | [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume_EM_2page_BLR.pdf) |
+
+---
+
+## How to Compile Locally
+
+These resumes use the `fontspec` package to load the system font **Arial**, requiring a Unicode-aware LaTeX engine such as **XeLaTeX**, **LuaLaTeX**, or **Tectonic** rather than standard `pdflatex`.
 
 ### Option 1: Using XeLaTeX (Standard TeX Live / MacTeX)
-If you have a standard LaTeX distribution installed, you can compile the resume from the terminal by running:
+Run the following from your terminal (running twice ensures hyperlinks and layout alignment are fully resolved):
 
+```bash
+xelatex <filename>.tex
+xelatex <filename>.tex
+```
+
+Example:
 ```bash
 xelatex rkulshreshtha_resume.tex
 ```
-*(You may need to run this command twice to ensure the layout and hyperlinks are fully resolved.)*
 
 ### Option 2: Using Tectonic (Fastest Setup)
-[Tectonic](https://tectonic-typesetting.github.io/) is a modern, self-contained LaTeX engine that downloads required packages on the fly. 
+[Tectonic](https://tectonic-typesetting.github.io/) is a modern, self-contained LaTeX engine that downloads required packages on the fly.
 
-If you are on macOS, you can install it via Homebrew:
+On macOS:
 ```bash
 brew install tectonic
 ```
 
-Then, simply run:
+Then compile any variant:
+```bash
+tectonic <filename>.tex
+```
+
+Example:
 ```bash
 tectonic rkulshreshtha_resume.tex
 ```
-This will automatically handle all package dependencies and output the compiled `rkulshreshtha_resume.pdf` file.
+
+---
 
 ## Automated Compilation (GitHub Actions)
 
-This repository is configured with a GitHub Actions pipeline. Every time a change is pushed to `rkulshreshtha_resume.tex`, the pipeline automatically compiles the document and keeps the most recent, up-to-date PDF in the `resume` branch.
+This repository includes a GitHub Actions CI/CD pipeline (`.github/workflows/compile-resume.yml`):
 
-You can always download the latest version directly from the repository here: [Download PDF](https://github.com/rkulshreshtha/Resume-Latex/raw/resume/rkulshreshtha_resume.pdf).
+- **Trigger:** Whenever changes are pushed to any file matching `rkulshreshtha_resume*.tex` on the `main` branch.
+- **Compilation:** Compiles all matching `.tex` files using XeLaTeX with Microsoft TrueType fonts installed.
+- **Deployment:** Automatically pushes all resulting PDFs to the dedicated [`resume`](https://github.com/rkulshreshtha/Resume-Latex/tree/resume) branch, keeping your `main` branch clean and preserving version history for each PDF.
