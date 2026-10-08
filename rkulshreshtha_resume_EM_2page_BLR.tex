@@ -1,0 +1,245 @@
+%% =====================================================================
+%%  RAJAT KULSHRESHTHA - CV (2 pages) tailored for Engineering Manager,
+%%  H&M Group Retail Staff Tools (Stockholm)
+%%  Build with XeLaTeX:  xelatex rkulshreshtha_resume_HnM_2p.tex
+%%  Uses Arial when installed, otherwise the metric-compatible Liberation Sans.
+%% =====================================================================
+\documentclass[10pt,a4paper]{article}
+
+%% ---- Fonts (single column, standard font, clean text layer for ATS) ----
+\usepackage{fontspec}
+\IfFontExistsTF{Arial}{%
+  \setmainfont{Arial}[Ligatures=NoCommon]%
+  \setsansfont{Arial}[Ligatures=NoCommon]}{%
+  \setmainfont{Liberation Sans}[Ligatures=NoCommon]%
+  \setsansfont{Liberation Sans}[Ligatures=NoCommon]}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[a4paper,left=0.65in,right=0.65in,top=0.55in,bottom=0.5in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[hidelinks,
+            pdftitle={Rajat Kulshreshtha - Engineering Manager CV},
+            pdfauthor={Rajat Kulshreshtha},
+            pdfsubject={Engineering Manager application, H&M Group}]{hyperref}
+
+\definecolor{rolecolor}{HTML}{2B579A}
+
+%% ---- Typography ----
+\renewcommand{\normalsize}{\fontsize{10}{12.1}\selectfont}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\raggedbottom
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{3em}
+
+\setlist[itemize]{label=\textbullet,leftmargin=12pt,labelsep=5pt,
+                  itemsep=1.2pt,parsep=0pt,topsep=1.2pt,partopsep=0pt}
+
+%% ---- Macros ----
+\newcommand{\bd}[1]{\textbf{#1}}
+
+% Section heading: bold caps, left aligned, thin rule
+\newcommand{\sect}[1]{%
+  \par\vspace{8pt}%
+  {\bfseries\fontsize{10.8}{12.5}\selectfont #1}\par\nointerlineskip
+  \vspace{1.5pt}\noindent\rule{\linewidth}{0.6pt}\par\vspace{4pt}}
+
+% \company{Name}{Location}{Total dates}
+\newcommand{\company}[3]{%
+  \par\vspace{1pt}\noindent\textbf{#1}, #2\hfill\textbf{#3}\par\nopagebreak}
+
+% \role{Title}{Dates}
+\newcommand{\role}[2]{%
+  \par\vspace{5pt}\noindent\textcolor{rolecolor}{\textbf{\textit{#1}}}\hfill
+  \textcolor{rolecolor}{\textit{#2}}\par\nopagebreak}
+
+% Group label inside a role
+\newcommand{\subhead}[1]{%
+  \par\vspace{4pt}\noindent\textcolor{rolecolor}{\textbf{#1}}\par\nopagebreak\vspace{0.5pt}}
+
+%% =====================================================================
+\begin{document}
+\normalsize
+
+%% ---- HEADER ----
+\centerline{\bfseries\fontsize{17}{19}\selectfont RAJAT KULSHRESHTHA}
+\vspace{2pt}
+\centerline{\bfseries\fontsize{11}{13}\selectfont Engineering Manager}
+\vspace{3pt}
+\centerline{Bengaluru, India \,|\, +91 9207179678 \,|\,
+  \href{mailto:rajatk171993@gmail.com}{rajatk171993@gmail.com}}
+\vspace{1.5pt}
+\centerline{\href{https://www.linkedin.com/in/rajat-kulshreshtha-a598434b/}{linkedin.com/in/rajat-kulshreshtha-a598434b}}
+
+%% ---- SUMMARY ----
+\sect{SUMMARY}
+Engineering Manager with 11+ years at PayPal building and running high-scale, consumer- and
+merchant-facing product platforms. Directly led \bd{10+ engineers} (30+ across the product) and
+\bd{cross-geo, distributed teams} of frontend, backend, mobile and QA engineers at
+\bd{99.995\% availability with zero P0/P1s}.
+Hands-on in Java, Spring Boot and microservices, with strong architecture, security and
+operational ownership. Led the adoption of \bd{AI-assisted, agentic engineering} (Claude) and
+shipped \bd{AI-enabled tools} used daily by engineering teams. Partners with Product Managers and
+stakeholders on direction and outcomes; builds \bd{high-performing teams} through coaching and
+hiring. Recipient of \bd{PayPal Trailblazer Award} (Innovation Architect, 2025).
+
+%% ---- CORE SKILLS ----
+\sect{CORE SKILLS}
+\textbf{Leadership:} Engineering management, people management and coaching, hiring and
+performance management, cross-geo (distributed) team leadership across frontend, backend,
+mobile and QA, roadmapping and OKRs, stakeholder and
+product partnership, agile delivery, leading through change and ambiguity.\par\vspace{2pt}
+\textbf{Engineering:} System architecture, microservices, REST and GraphQL APIs, security,
+observability and alerting, operational ownership, performance and scalability, legacy
+modernisation, ROI-driven technology decisions, AI-assisted and agentic engineering.\par\vspace{2pt}
+\textbf{Technology:} Java, Spring Boot, Git, Jenkins, Claude, Datadog, Splunk, OpenAPI/Swagger, SQL, Kafka, Docker.
+
+%% ---- EXPERIENCE ----
+\sect{EXPERIENCE}
+\company{PayPal India Private Limited}{Bengaluru, India}{Jul 2015 -- Sep 2026}
+
+\role{Manager, Software Development (Engineering Manager), Activity Services}{Jul 2022 -- Sep 2026}
+\begin{itemize}
+\item \bd{Directly managed 10+ engineers} for 4+ years and led 30+ engineers in an end-to-end
+  full-stack product model, delivering \bd{90+ product, 25+ strategic, 35+ security} and 10+
+  tech-excellence and innovation initiatives. Owned transaction listing, search and details APIs
+  across PayPal UX, powering \bd{32\%+ in-app and 27\%+ email engagement} in post-transaction
+  experiences.
+\end{itemize}
+
+\subhead{AI-assisted engineering and AI-enabled products}
+\begin{itemize}
+\item Led the team's adoption of \bd{AI-assisted engineering practices}: set up innovation processes to avoid
+  duplicate AI use cases across the org and built a shared context layer (``LLM Wiki'': repo
+  conventions, coding standards, architecture rules, domain documentation) so AI agents act as
+  domain experts, refined through feedback.
+\item Built an \bd{agentic SDLC workflow with Claude}: plugins for architecture and planning,
+  feature development and PR review, starting from Jira requirements and built bottom-up from
+  single-purpose agents. \bd{30\%+ faster requirements-to-review}; lets developers new to our
+  systems contribute; now being tested on system bugs.
+\item Shipped \bd{AI-enabled colleague-facing tools}: a domain-support Slack bot (\bd{60\% less
+  developer time} on domain questions, \bd{70\% shorter wait} for first response from other
+  teams, including cross-geo); Datadog and Splunk alert triage that analyses deviations against
+  code, recent rollouts and downstream dependencies; a Jira agent that turns sprint-planning
+  documents into stories with acceptance criteria (\bd{40\%+ less Jira effort} per person); and
+  a Slack bot that turns daily reflections into weekly kudos and monthly growth summaries.
+\item \bd{Modernised 7 externalised legacy APIs} (15+ years old, 30M+ daily merchant queries) to
+  Java using AI, with \bd{zero P0/P1 impact}: 99.99\% fewer failures, 60M insecure data
+  retrievals/day and 90\% Op-ex removed. AI in the SDLC delivered a 50\% productivity uplift and
+  stronger security.
+\end{itemize}
+
+\subhead{Product delivery and cross-geo distributed teams}
+\begin{itemize}
+\item Led 13 cross-geo engineers across frontend, backend, mobile and QA, partnering with 6
+  domain teams across AMER, EMEA and APAC, to build \bd{Rewards in the Activity feed} of the
+  redesigned PayPal Consumer Oslo app (\bd{22\%+ engagement}): 8+ reward variations in 10+ use cases,
+  4M+ records/day and 200M+ backfilled records. Unified Synchrony-powered Cashback and Credit
+  transactions with rewards in one experience.
+\item Nominated by Senior Director+ to lead a cross-geo 7+ engineer team across
+  backend, web and app building a scalable platform for PayPal's \bd{highest-priority anti-spam
+  initiative}; delivered \bd{a month ahead of target}.
+\item Instituted \bd{Product--Program--Engineering syncs} (OKRs, risk and resource planning) so
+  leads represent the team independently across stakeholders. Led 70\%+ of inbound intake,
+  accelerating program alignment 50\%+; guided 120+ product requesters to prioritise by ROI within
+  compliance and governance; aligned architects on 8 tech initiatives (2023--2026).
+\end{itemize}
+
+\subhead{Reliability, security and performance}
+\begin{itemize}
+\item \bd{Owned operations}: sustained \bd{99.995\% availability} with zero P0/P1s and low
+  client-facing latency; built exception-handling, alerting and triage processes; supported
+  500+ Jira tickets and 1.5k+ queries.
+\item Re-architected a \bd{Tier-1 system} for \bd{8x throughput, USD 300K+/year savings}, 450+
+  fewer VMs, 50\% lower latency and CPU and 90\% fewer garbage-collection runs per hour; built a
+  shadow framework for low-risk re-architecture; introduced distributed caching that removed
+  \bd{2.75B outbound calls/day} and freed 1k+ VMs.
+\item Led multi-year initiatives that cut legacy platform cost and lifted performance 20\%+
+  (p99 under 8 seconds on Activities cached data).
+\end{itemize}
+
+\subhead{People, process and stakeholders}
+\begin{itemize}
+\item \bd{Built and grew the team}: hired 10, promoted 3 and repositioned 2 engineers; ran
+  monthly 1:1s with structured feedback and strengths-based assessment; onboarded 5 interns
+  (all secured pre-placement offers); \bd{Glint performance score 91/100}, 14 points above
+  PayPal management and highest in the Consumer org (2023).
+\item Raised \bd{sprint throughput 25\%+ and say-do ratio 70\%+}; cleared a 3-year-old backlog of
+  100+ tickets and won back 10+ merchants (USD 5M+ payment volume).
+\item Resolved issues for high-volume merchants (Google, Apple, Meta, Plaid, Shopify and others)
+  with cross-functional teams, recognised as ``One PayPal in Action'' and ``Favorite partners to work with''. 
+  Briefed senior executives weekly; presented to the CTO, CIO and VPs, including hosting a CTO talk.
+\end{itemize}
+
+\role{Member of Technical Staff 1, Activity Services}{Mar 2022 -- Jun 2022}
+\begin{itemize}
+\item Led the migration of ``Actions in Activities'' from strong to eventual consistency:
+  \bd{70\% lower latency, USD 480K/year saved}, 1B+ daily real-time API calls and 6B+ daily SQL
+  queries removed, four-nines availability.
+\item Launched \bd{GraphQL}-based loading on the Activities detail page (1+ s latency and 60+
+  real-time API calls removed). Replaced ES infrastructure usage for ``Did you mean'' search with
+  equivalent functionality on existing platform capabilities: \bd{USD 220K/year saved}, zero
+  customer impact.
+\end{itemize}
+
+\role{Software Engineer 3, Activity Services}{Feb 2020 -- Mar 2022}
+\begin{itemize}
+\item Managed \bd{15+ engineers} for 1.5 years to \bd{decommission 4 legacy services} (15+ years
+  old): USD 700K/year infrastructure saved, 100K+ lines of code removed,
+  25x+ faster in 7 searches.
+\item Led 8 engineers on \bd{X-Geo enablement}: regulatory-compliant data
+  migration for millions of customers, \bd{China financial-audit} compliance (30+ points of
+  contact) and the launch of PayPal payments products in China.
+\item Cut Search API latency \bd{20x} with a parallelised database read pattern (team of 3) and
+  redesigned ``Actions in Activities'' for \bd{3x lower latency} (3.5 s to under 1 s). Platform
+  owner with 500+ code reviews.
+\end{itemize}
+
+\role{Software Engineer 2, Activity Services}{Feb 2017 -- Feb 2020}
+\begin{itemize}
+\item Directed 5 engineers building \bd{Enterprise Audit} for large merchants in 10+ economies;
+  ran development of the team's externalised APIs on the PayPal developer portal and rectified
+  50+ product issues.
+\item Cut time to market \bd{3x} with self-serve coded architecture and fixed defects for
+  \bd{100x faster} filtering; built a Refund credit ETA tracker (5K fewer daily customer contacts)
+  and a CI jobs dashboard (10K+ developer hours saved); recovered USD 100K/year of legacy cost.
+\item Drove platform integrations with Android Pay, Samsung Pay and Apple; led a \bd{security
+  upgrade} (client authentication and classification-based data encryption in transit).
+\end{itemize}
+
+\role{Software Engineer 1, Activity Services}{Jul 2015 -- Feb 2017}
+\begin{itemize}
+\item Migrated 2 customer-facing APIs (300M+ daily requests) to a new stack,
+  \bd{cutting deployment time 97.5\%}.
+\item Primary contact for P0/P1 issues from Intuit, Google, Microsoft and Facebook (100+ Jira
+  issues); delivered Funds-In-Funds-Out platform integrations with Google, Xoom, Skype and
+  Facebook within a month.
+\end{itemize}
+
+%% ---- EDUCATION ----
+\sect{EDUCATION}
+\noindent\textbf{Indian Institute of Technology Guwahati}, Assam, India \hfill \textbf{2011 -- 2015}\par
+B.Tech, Electronics and Electrical Engineering, Minor in Computer Science and Engineering;
+GPA 8.93/10; Institute Silver Medal (highest cumulative performance index in EEE, 2015 batch).\par
+
+%% ---- CERTIFICATIONS AND AWARDS ----
+\sect{CERTIFICATIONS, AWARDS AND LANGUAGES}
+\begin{itemize}
+\item \bd{PayPal Trailblazer Award}, Innovation Architect category (2025).
+\item \bd{Professional Diploma in Coaching and Mentoring}, Kingstown College, Ireland
+  (Distinction, 81/100), Nov 2024 -- Jun 2025.
+\item PayPal Manager Benchmark Certification, ``Managing at PayPal Successfully'' (2024).
+\item PayPal Star of the Month (2021, USD 680K annual savings from legacy migration), Heroes
+  (2020), 20+ Props!, 12 Spot Rewards and 11 Bravo! recognitions.
+\item 1st in PayPal Bangalore SecForce cyber-security championship (2019); PayPal Agile
+  Championship Program (2019, 50+ participants).
+\item English: IELTS 7.5/9 (CEFR C1).
+\end{itemize}
+\par\vspace{3pt}\noindent\textbf{Additional material:}
+\href{https://drive.google.com/drive/folders/13Bf0HafvCIkevoNJ00SZOg74DJxv4I3P}{drive.google.com/drive/folders/13Bf0HafvCIkevoNJ00SZOg74DJxv4I3P}
+
+\end{document}
